@@ -1,0 +1,9 @@
+<% if @game.invitation_pending? %>
+  <% if current_player_or_guest.playing?(@game) %>
+    <%= render 'games/invitation_sender' %>
+  <% else %>
+    <%= render 'games/invitation_receiver' %>
+  <% end %>
+<% else %>
+  <%= render 'games/play' %>
+<% end %>

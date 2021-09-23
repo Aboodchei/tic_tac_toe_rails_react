@@ -13,3 +13,47 @@
  *= require_tree .
  *= require_self
  */
+
+/*table.game_table {
+  border: 1px solid white;
+}
+*/
+
+.game_tr {
+  font-size: 4rem;
+  text-align: center;
+}
+
+.game_td {
+   border: 2px solid white;
+   height: 8rem;
+   width: 4rem;
+}
+
+.game_td_winning {
+  background-color: darkcyan !important;
+}
+
+.game_td_1,
+.game_td_2,
+.game_td_3 {
+  border-top: none;
+}
+
+.game_td_1,
+.game_td_4,
+.game_td_7 {
+  border-left: none;
+}
+
+.game_td_7,
+.game_td_8,
+.game_td_9 {
+  border-bottom: none;
+}
+
+.game_td_3,
+.game_td_6,
+.game_td_9 {
+  border-right: none;
+}

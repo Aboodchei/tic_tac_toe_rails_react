@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="px-4 py-5 my-5 text-center">
+      <h1 class="display-5 fw-bold">Tic Tac Toe</h1>
+      <div class="col-lg-9 mx-auto">
+        <p class="lead mb-4">A simple online multiplayer game, built using Ruby on Rails & React.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <button type="button" class="btn btn-primary btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#newGameModal">Start a New game</button>
+          <a class="btn btn-outline-secondary btn-lg px-4" href="/players/sign_in">
+            <% if current_player.blank? || current_player.guest? %>
+              Log in / Sign up
+            <% else %>
+              Sign out
+            <% end %>
+          </a>
+        </div>
+      </div>
+  </div>
+
+  <div class="modal fade" id="newGameModal" tabindex="-1" aria-labelledby="newGameModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newGameModalLabel">New game</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <%= form_with url: games_url, method: :post do %>
+          <div class="modal-body">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="player" id="player_one" value="one" checked>
+              <label class="form-check-label" for="player_one">
+                Play as X
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="player" id="player_two" value="two">
+              <label class="form-check-label" for="player_two">
+                Play as O
+              </label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success">Create</button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

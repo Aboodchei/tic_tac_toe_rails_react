@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_21_153423) do
+ActiveRecord::Schema.define(version: 2021_09_23_161345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,9 +25,14 @@ ActiveRecord::Schema.define(version: 2021_09_21_153423) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug", default: "", null: false
+    t.string "winning_combination", default: [], array: true
+    t.integer "rematch_status", default: 0
+    t.string "rematch_slug"
+    t.bigint "rematch_requester_id"
     t.index ["player_one_id"], name: "index_games_on_player_one_id"
     t.index ["player_two_id"], name: "index_games_on_player_two_id"
     t.index ["player_with_turn_id"], name: "index_games_on_player_with_turn_id"
+    t.index ["rematch_requester_id"], name: "index_games_on_rematch_requester_id"
     t.index ["slug"], name: "index_games_on_slug"
   end
 
@@ -39,7 +44,7 @@ ActiveRecord::Schema.define(version: 2021_09_21_153423) do
     t.integer "draw_count", default: 0, null: false
     t.integer "loss_count", default: 0, null: false
     t.integer "total_games_count", default: 0, null: false
-    t.boolean "guest", default: true, null: false
+    t.boolean "guest", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["username"], name: "index_players_on_username", unique: true
@@ -48,4 +53,5 @@ ActiveRecord::Schema.define(version: 2021_09_21_153423) do
   add_foreign_key "games", "players", column: "player_one_id"
   add_foreign_key "games", "players", column: "player_two_id"
   add_foreign_key "games", "players", column: "player_with_turn_id"
+  add_foreign_key "games", "players", column: "rematch_requester_id"
 end

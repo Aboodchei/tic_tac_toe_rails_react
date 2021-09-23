@@ -2,29 +2,35 @@
 #
 # Table name: games
 #
-#  id                  :bigint           not null, primary key
-#  moves               :string           default([]), is an Array
-#  result              :integer          default("not_applicable"), not null
-#  slug                :string           default(""), not null
-#  status              :integer          default("invitation_pending"), not null
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
-#  player_one_id       :bigint
-#  player_two_id       :bigint
-#  player_with_turn_id :bigint
+#  id                   :bigint           not null, primary key
+#  moves                :string           default([]), is an Array
+#  rematch_slug         :string
+#  rematch_status       :integer          default(0)
+#  result               :integer          default("not_applicable"), not null
+#  slug                 :string           default(""), not null
+#  status               :integer          default("invitation_pending"), not null
+#  winning_combination  :string           default([]), is an Array
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  player_one_id        :bigint
+#  player_two_id        :bigint
+#  player_with_turn_id  :bigint
+#  rematch_requester_id :bigint
 #
 # Indexes
 #
-#  index_games_on_player_one_id        (player_one_id)
-#  index_games_on_player_two_id        (player_two_id)
-#  index_games_on_player_with_turn_id  (player_with_turn_id)
-#  index_games_on_slug                 (slug)
+#  index_games_on_player_one_id         (player_one_id)
+#  index_games_on_player_two_id         (player_two_id)
+#  index_games_on_player_with_turn_id   (player_with_turn_id)
+#  index_games_on_rematch_requester_id  (rematch_requester_id)
+#  index_games_on_slug                  (slug)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (player_one_id => players.id)
 #  fk_rails_...  (player_two_id => players.id)
 #  fk_rails_...  (player_with_turn_id => players.id)
+#  fk_rails_...  (rematch_requester_id => players.id)
 #
 FactoryBot.define do
   factory :game do

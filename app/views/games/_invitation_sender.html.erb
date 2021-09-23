@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Challenge to a game!</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">To invite someone to play, give them this URL</p>
+      <div class="text-center">
+        <div class="input-group mb-3">
+          <input id="invitation_link" type="text" class="form-control" value="<%= game_url(slug: @game.slug) %>" readonly>
+          <button class="btn btn-primary" type="button" id="copy_btn" data-clipboard-target="#invitation_link">Copy</button>
+        </div>
+      </div>
+      <p class="lead">The first person to accept this invitation will play with you.</p>
+      <div class="d-flex align-items-center">
+        Waiting for your opponent...
+        <div class="spinner-grow text-success ms-auto" role="status" aria-hidden="true"></div>
+      </div>
+      <%= react_component("InvitationListener", { game_slug: @game.slug }) %>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  new ClipboardJS('#copy_btn');
+</script>

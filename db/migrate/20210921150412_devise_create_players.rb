@@ -15,7 +15,7 @@ class DeviseCreatePlayers < ActiveRecord::Migration[6.1]
       t.integer :loss_count, null: false, default: 0
       t.integer :total_games_count, null: false, default: 0
 
-      t.boolean :guest, null: false, default: true
+      t.boolean :guest, null: false, default: false
 
       t.timestamps null: false
     end

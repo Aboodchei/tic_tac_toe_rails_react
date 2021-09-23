@@ -5,7 +5,7 @@
 #  id                  :bigint           not null, primary key
 #  draw_count          :integer          default(0), not null
 #  encrypted_password  :string           default(""), not null
-#  guest               :boolean          default(TRUE), not null
+#  guest               :boolean          default(FALSE), not null
 #  loss_count          :integer          default(0), not null
 #  remember_created_at :datetime
 #  total_games_count   :integer          default(0), not null
