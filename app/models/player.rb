@@ -20,7 +20,7 @@
 #
 class Player < ApplicationRecord
   devise :database_authenticatable, :rememberable, :registerable
-  validates_uniqueness_of :username
+  validates :username, format: { with: /\A[a-zA-Z0-9]+\Z/ }, presence: true, uniqueness: true, length: { minimum: 4 }
 
   def display_name
     guest? ? "Anonymous" : username
