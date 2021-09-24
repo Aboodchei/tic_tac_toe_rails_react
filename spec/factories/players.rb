@@ -20,7 +20,7 @@
 #
 FactoryBot.define do
   factory :player do
-    username { "User#{SecureRandom.urlsafe_base64(6)}" }
+    username { "User#{SecureRandom.alphanumeric(6)}" }
     password { 12345678 }
     guest { true }
   end

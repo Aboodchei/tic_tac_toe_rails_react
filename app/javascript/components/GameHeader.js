@@ -40,7 +40,7 @@ function GameHeader(props) {
     if(player.guest){
       return("Anonymous")
     }else{
-      return(<a href={'/players/' + props.player.displayName} target='_blank'>{props.player.displayName}</a>)
+      return(<a href={'/players/' + player.displayName} target='_blank'>{player.displayName}</a>)
     }
   }
 

@@ -63,7 +63,6 @@ GEM
     annotate (3.1.1)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
-    awesome_print (1.8.0)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -233,7 +232,6 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
-  awesome_print
   bootsnap (>= 1.4.4)
   byebug
   devise

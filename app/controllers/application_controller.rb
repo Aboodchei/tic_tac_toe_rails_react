@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   private
 
   def create_and_sign_in_guest_player
-    player = Player.create(username: SecureRandom.urlsafe_base64(6), password: SecureRandom.urlsafe_base64(6), guest: true)
+    player = Player.create(username: SecureRandom.alphanumeric(6), password: SecureRandom.alphanumeric(6), guest: true)
     sign_in(:player, player)
     player
   end

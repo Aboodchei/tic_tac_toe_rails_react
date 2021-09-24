@@ -122,7 +122,7 @@ class Game < ApplicationRecord
   end
 
   def generate_slug
-    generated_slug = SecureRandom.urlsafe_base64(6)
+    generated_slug = SecureRandom.alphanumeric(6)
     if Game.where(slug: generated_slug).exists?
       generate_slug
     else
