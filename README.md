@@ -2,7 +2,7 @@
 This was a fun project, I enjoyed it!
 It took me ~5 days to complete.
 
-I've also deployed it on Heroku! [Check it out here!](http://intense-temple-28283.herokuapp.com/)
+I've also deployed it on Heroku! [Check it out here!](https://intense-temple-28283.herokuapp.com/)
 
 The first part I thought about was how I was going to tackle this. I wanted to opt for something that was:
 - User friendly and fun.
